@@ -42,6 +42,12 @@
   --secondary: hsl(43 96% 64%);
   --secondary-foreground: hsl(0 0% 0%);
 
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(222 47% 11%);
+
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(222 47% 11%);
+
   --muted: hsl(210 40% 96.1%);
   --muted-foreground: hsl(215.4 16.3% 46.9%);
 
@@ -68,8 +74,14 @@
   --primary-foreground: hsl(0 0% 100%);
 
   /* Secondary */
-  --secondary: hsl(43 96% 44%);
+  --secondary: hsl(43 96% 64%);
   --secondary-foreground: hsl(0 0% 0%);
+
+  --card: hsl(222 47% 11%);
+  --card-foreground: hsl(210 40% 98%);
+
+  --popover: hsl(222 47% 11%);
+  --popover-foreground: hsl(210 40% 98%);
 
   --muted: hsl(215.4 16.3% 26.9%);
   --muted-foreground: hsl(210 40% 76.1%);

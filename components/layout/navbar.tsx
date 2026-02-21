@@ -3,12 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X, Hammer } from "lucide-react";
+import { Menu, X, Hammer, User } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/context/AuthContext";
 import { ThemeToggle } from "@/components/theme-toggle";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const navigation = [
     { name: "الرئيسية", href: "/" },
@@ -57,19 +66,44 @@ export function Navbar() {
                 <div className="hidden md:flex md:items-center md:gap-4">
                     <ThemeToggle />
                     {user ? (
-                        <>
+                        <div className="flex items-center gap-4">
                             <Button asChild className="hidden lg:flex font-bold shadow-md animate-pulse">
                                 <Link href="/dashboard/customer/post">
                                     + اطلب خدمة
                                 </Link>
                             </Button>
-                            <Button variant="ghost" asChild>
-                                <Link href="/dashboard/customer">لوحة التحكم</Link>
-                            </Button>
-                            <Button variant="outline" onClick={() => signOut()}>
-                                تسجيل خروج
-                            </Button>
-                        </>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                                        <Avatar className="h-10 w-10 border-2 border-primary">
+                                            <AvatarImage src={user.photoURL || undefined} alt={user.displayName || "User"} />
+                                            <AvatarFallback className="bg-primary/10 text-primary">
+                                                <User className="h-5 w-5" />
+                                            </AvatarFallback>
+                                        </Avatar>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="w-56 mt-2 z-50" align="end" forceMount>
+                                    <DropdownMenuLabel className="font-normal">
+                                        <div className="flex flex-col space-y-1">
+                                            <p className="text-sm font-medium leading-none">{user.displayName || "المستخدم"}</p>
+                                            <p className="text-xs leading-none text-muted-foreground">
+                                                {user.email}
+                                            </p>
+                                        </div>
+                                    </DropdownMenuLabel>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem asChild>
+                                        <Link href="/dashboard/customer" className="w-full cursor-pointer">
+                                            لوحة التحكم
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive focus:text-destructive">
+                                        تسجيل خروج
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
                     ) : (
                         <>
                             <Button asChild className="hidden lg:flex font-bold shadow-md">
