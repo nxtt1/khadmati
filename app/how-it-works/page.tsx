@@ -104,7 +104,7 @@ export default function HowItWorksPage() {
                     <div className="container px-4 md:px-6">
                         <Tabs defaultValue="customer" className="w-full max-w-5xl mx-auto">
                             <div className="flex justify-center mb-12">
-                                <TabsList className="grid w-full max-w-md grid-cols-2 p-1 bg-muted rounded-full">
+                                <TabsList className="grid w-full max-w-md grid-cols-2 p-1 bg-muted rounded-full h-auto">
                                     <TabsTrigger value="customer" className="rounded-full text-lg py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">أني زبون 🏠</TabsTrigger>
                                     <TabsTrigger value="worker" className="rounded-full text-lg py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">أني محترف 🛠️</TabsTrigger>
                                 </TabsList>
