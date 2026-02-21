@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-lbc);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  --background: hsl(210 40% 98%);
+  --foreground: hsl(222 47% 11%);
+
+  /* Soft Green/Mint from User Image Match */
+  --primary: hsl(148 55% 59%);
+  --primary-foreground: hsl(0 0% 100%);
+
+  /* Sand / Gold for Warmth & Local Context */
+  --secondary: hsl(43 96% 64%);
+  --secondary-foreground: hsl(0 0% 0%);
+
+  --muted: hsl(210 40% 96.1%);
+  --muted-foreground: hsl(215.4 16.3% 46.9%);
+
+  --accent: hsl(210 40% 96.1%);
+  --accent-foreground: hsl(222 47% 11%);
+
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: hsl(214.3 31.8% 91.4%);
+  --input: hsl(214.3 31.8% 91.4%);
+  --ring: hsl(173 80% 40%);
+
+  --radius: 0.75rem;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(222 47% 11%);
+  --foreground: hsl(210 40% 98%);
+
+  /* Primary color remains the same or slightly adjusted for dark mode */
+  --primary: hsl(148 55% 59%);
+  --primary-foreground: hsl(0 0% 100%);
+
+  /* Secondary */
+  --secondary: hsl(43 96% 44%);
+  --secondary-foreground: hsl(0 0% 0%);
+
+  --muted: hsl(215.4 16.3% 26.9%);
+  --muted-foreground: hsl(210 40% 76.1%);
+
+  --accent: hsl(215.4 16.3% 26.9%);
+  --accent-foreground: hsl(210 40% 98%);
+
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: hsl(215.4 16.3% 26.9%);
+  --input: hsl(215.4 16.3% 26.9%);
+  --ring: hsl(148 55% 59%);
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 1400px;
+}
